@@ -1,0 +1,11 @@
+*
+!app/
+!app/**
+!public/
+!public/**
+!bin/
+!bin/**
+!docker/
+!docker/php.ini
+!docker/Caddyfile.vercel
+!docker/supabase-ca.crt

@@ -1,0 +1,16 @@
+{
+	skip_install_trust
+}
+
+https://localhost {
+	tls internal
+	root * /srv/portal/public
+	php_fastcgi app:9000 {
+		try_files {path} /index.php
+	}
+	file_server
+
+	handle_errors {
+		respond "Não foi possível atender à solicitação." {err.status_code}
+	}
+}

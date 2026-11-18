@@ -1,0 +1,16 @@
+# syntax=docker/dockerfile:1
+FROM dunglas/frankenphp:1-php8.4-alpine
+
+RUN install-php-extensions pdo_pgsql \
+    && cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini" \
+    && php -r 'exit(in_array("argon2id", password_algos(), true) ? 0 : 1);'
+
+WORKDIR /srv/portal
+COPY docker/Caddyfile.vercel /etc/caddy/Caddyfile
+COPY docker/php.ini /usr/local/etc/php/conf.d/portal.ini
+COPY docker/supabase-ca.crt /run/certs/supabase-ca.crt
+COPY app ./app
+COPY public ./public
+
+ENV PORTAL_VERCEL=1
+CMD ["frankenphp", "run", "--config", "/etc/caddy/Caddyfile"]

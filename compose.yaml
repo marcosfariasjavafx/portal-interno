@@ -1,0 +1,24 @@
+services:
+  app:
+    build: .
+    env_file: .env
+    volumes:
+      - type: bind
+        source: ./supabase-ca.crt
+        target: /run/certs/supabase-ca.crt
+        read_only: true
+        bind:
+          create_host_path: false
+  web:
+    image: caddy:2.11-alpine
+    depends_on:
+      - app
+    ports:
+      - "127.0.0.1:443:443"
+    volumes:
+      - ./docker/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./public:/srv/portal/public:ro
+      - caddy_data:/data
+
+volumes:
+  caddy_data:
