@@ -1,7 +1,7 @@
 .env
 .env.*
-supabase-ca.crt
-caddy-local.crt
+/supabase-ca.crt
+/caddy-local.crt
 bin/
 supabase/
 compose.yaml
