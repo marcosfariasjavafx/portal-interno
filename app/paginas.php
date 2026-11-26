@@ -112,10 +112,6 @@ function pagina(
                             <span aria-hidden="true">→</span>
                         </button>
                     </form>
-                    <?php if ($tipo === 'login' && $conta !== null): ?>
-                        <p class="retorno">Sessão ativa como <strong><?= Seguranca::escapar($conta['login']) ?></strong>.
-                            <a href="<?= $destino ?>">Voltar à sua área</a></p>
-                    <?php endif; ?>
                 <?php elseif ($tipo === 'erro'): ?>
                     <a class="botao secundario" href="/login">Ir para o login <span aria-hidden="true">→</span></a>
                 <?php else: ?>

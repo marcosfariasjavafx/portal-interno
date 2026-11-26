@@ -95,7 +95,6 @@ a { color: var(--verde); text-underline-offset: .2em; }
 .primario:hover { background: #083d2f; }
 .secundario { color: var(--verde); background: transparent; border: 1px solid #8ca99a; }
 .secundario:hover { background: #e9f2e6; }
-.retorno { margin: 23px 0 0; padding-top: 17px; border-top: 1px solid var(--borda); font-size: .9rem; line-height: 1.55; overflow-wrap: anywhere; }
 .aviso { border: 1px solid; border-radius: 8px; padding: 12px 14px; line-height: 1.45; margin: 20px 0; }
 .aviso-erro { border-color: #e0babc; color: #752629; background: #fff1f1; }
 .aviso-sucesso { border-color: #a9cdb3; color: #194e30; background: #edf7ed; }
